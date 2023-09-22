@@ -56,3 +56,23 @@ Check time using EXTERNAL-IP:
 http://127.0.0.1:8080/time
 
 ## Run in cloud kubernetes
+
+### Push the Docker Image to Docker Hub
+
+Authenticate with Docker Hub:
+```bash
+docker login
+```
+
+Create a Docker Image:
+```bash
+docker build -t dubovikov/go-time:latest .
+```
+
+Push the Docker Image to Docker Hub:
+```bash
+docker push dubovikov/go-time:latest
+```
+
+Verify the Upload:
+https://hub.docker.com/
