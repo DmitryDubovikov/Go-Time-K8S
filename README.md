@@ -76,3 +76,30 @@ docker push dubovikov/go-time:latest
 
 Verify the Upload:
 https://hub.docker.com/
+
+### Create deployment
+
+```bash
+ kubectl apply -f go-time-deployment.yaml
+```
+
+### Expose created deployment
+
+#### Service (LoadBalancer):
+
+Service for internal load balancing and access to pods within the cluster.
+
+```bash
+kubectl expose deployment time-deployment --type=LoadBalancer --port=8080 --dry-run=client -o yaml > go-time-service.yaml
+
+kubectl apply -f .\go-time-service.yaml
+```
+
+Let's scale deployment:
+```bash
+kubectl scale deployment time-deployment --replicas=3
+```
+
+#### Ingress
+
+Ingress for managing external access and routing of HTTP traffic.
