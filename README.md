@@ -103,3 +103,18 @@ kubectl scale deployment time-deployment --replicas=3
 #### Ingress
 
 Ingress for managing external access and routing of HTTP traffic.
+
+
+
+------------
+```bash
+dima@beelink:~/.kube$ ls
+cache  config  kubeconfig-beeline.yaml
+dima@beelink:~/.kube$ export KUBECONFIG=./kubeconfig-beeline.yaml
+dima@beelink:~/.kube$ kubectl get pods
+NAME                               READY   STATUS    RESTARTS   AGE
+time-deployment-75f69dd776-528s6   1/1     Running   0          110m
+time-deployment-75f69dd776-8h654   1/1     Running   0          110m
+time-deployment-75f69dd776-8wn8g   1/1     Running   0          87m
+
+```
